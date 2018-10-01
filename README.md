@@ -27,6 +27,9 @@ const { typeDefs, resolvers } = initAccounts({
   overrideCreateUser: (createUser, _, args, context) {
     // Optionally override createUser if you need custom logic
     // Or simply restrict him from authenticating
+    // Example usage:
+    const { username, password } = args
+    return createUser(null, { username, password });
   }
 });
 
